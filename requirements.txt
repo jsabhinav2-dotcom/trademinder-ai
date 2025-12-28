@@ -51,3 +51,8 @@ if st.button("Analyze"):
         st.write("Buying momentum is strong.")
     else:
         st.write("Selling pressure is strong.")
+streamlit
+yfinance
+pandas
+pandas_ta
+numpy
