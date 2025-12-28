@@ -1,7 +1,7 @@
 import streamlit as st
 import yfinance as yf
-import ta
-import pandas as pd
+import pandas_ta as ta
+import pandas_ta as ta
 
 st.set_page_config(page_title="TradeMind AI", layout="centered")
 
@@ -14,8 +14,10 @@ if st.button("Analyze"):
 
     data = yf.download(stock, period="6mo", interval="1d")
 
-    data["rsi"] = ta.momentum.RSIIndicator(data["Close"], 14).rsi()
-    data["macd"] = ta.trend.MACD(data["Close"]).macd()
+    data["rsi"] = ta.rsi(data["Close"], length=14)
+data["macd"] = ta.macd(data["Close"])["MACD_12_26_9"]
+
+
 
     latest = data.iloc[-1]
 
